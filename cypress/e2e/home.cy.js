@@ -1,8 +1,10 @@
 import TestConstants from "../fixtures/testData/testConstants.json"
+import {HomePage} from "../../Pages/HomePage"
 
 describe('Zone test', () => {
     beforeEach('Launch url', () => {
-      cy.visit('/demos/menu/shadow-dom/index.htm')
+      const homePage = new HomePage()
+      homePage.launchURL()
     })
 
     it('Verify that user can see view dropdown', () => {
