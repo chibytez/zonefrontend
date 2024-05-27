@@ -8,8 +8,9 @@ describe('Zone test', () => {
     })
 
     it('Verify that user can see view dropdown', () => {
-         cy.get('[label = "View"]').then(dropdown => {
-            const actualOption = [...dropdown.find('.smart-menu-drop-down')].map(option => option.textContent.trim());
+      const homePage = new HomePage()
+         homePage.clickViewBtn().then(dropdown => {
+            const actualOption = [...dropdown.find(homePage.getViewvalues)].map(option => option.textContent.trim());
             expect(actualOption.includes(TestConstants.server, TestConstants.team, TestConstants.server))
          })
     })
